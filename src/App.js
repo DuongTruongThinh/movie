@@ -1,24 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./page/Home/Home";
+import Login from "./page/Login/Login";
+import DetailMovie from "./page/DetailMovie/DetailMovie";
+import Layout from "./temlate/Layout";
+import Register from "./page/Register/Register";
+import Ticketroom from "./page/Ticketroom/Ticketroom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Layout>
+              <Home></Home>
+            </Layout>
+          }
+        ></Route>
+        <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/register" element={<Register></Register>}></Route>
+        <Route
+          path="/movie/:id"
+          element={
+            <Layout>
+              <DetailMovie></DetailMovie>
+            </Layout>
+          }
+        ></Route>
+
+        <Route
+          path="/ticketroom/:id"
+          element={
+            <Layout>
+              <Ticketroom></Ticketroom>
+            </Layout>
+          }
+        ></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
