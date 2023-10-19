@@ -21,7 +21,7 @@ export default function Seat(props) {
 
   return (
     <div>
-      <h2>Seat List</h2>
+      {/* <h2>Seat List</h2> */}
       <div>
         {seats.map((item, index) => {
           if (item.taiKhoanNguoiDat == null) {

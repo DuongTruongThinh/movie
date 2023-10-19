@@ -21,8 +21,12 @@ export default function Ticketroom() {
   // hiển thị thông tin phim
   let handleThongTinPhim = () => {
     return (
-      <div>
-        <img src={thongTinPhim.hinhAnh} alt="" className="h-48 object-cover" />
+      <div className="flex">
+        <img
+          src={thongTinPhim.hinhAnh}
+          alt=""
+          className="h-48 object-cover m-3"
+        />
         <div className="m-4">
           <p>Tên phim: {thongTinPhim.tenPhim}</p>
           <p>Cụm rạp: {thongTinPhim.tenCumRap}</p>

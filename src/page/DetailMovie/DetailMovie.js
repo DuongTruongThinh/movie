@@ -39,7 +39,7 @@ export default function DetailMovie() {
             type="circle"
             size={200}
             strokeColor={"red"}
-            strokeWidth={20}
+            strokeWidth={8}
             format={(percent) => (
               <span className="text-red-600 font-medium animate-bounce block">
                 {percent / 10} Điểm

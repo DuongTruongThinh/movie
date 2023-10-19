@@ -21,15 +21,15 @@ export default function TabMovie2(props) {
   let renderDsPhim = (dsPhim) => {
     return dsPhim.map((phim) => {
       return (
-        <div className="flex space-x-5 p-3 items-center">
+        <div className="flex space-x-5 p-3 items-center ">
           <div>
-            <div className="grid grid-cols-4 gap-5">
+            <div>
               {phim.lstLichChieuTheoPhim.slice(0 - 8).map((lichChieu) => {
                 // console.log(lichChieu);
                 return (
                   <div>
                     {/* <span>{lichChieu.maLichChieu}</span> */}
-                    <button className="bg-red-500 text-white px-5 py-2">
+                    <button className="bg-red-500 text-white px-5 py-2 m-3">
                       <NavLink
                         className="text - white"
                         to={`/ticketroom/${lichChieu.maLichChieu}`}
