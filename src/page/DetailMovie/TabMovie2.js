@@ -28,17 +28,15 @@ export default function TabMovie2(props) {
                 // console.log(lichChieu);
                 return (
                   <div>
-                    <span className="bg-red-500 text-white px-5 py-2">
-                      {moment(lichChieu).format("LLLL")}
-                    </span>
-                    <span>{lichChieu.maLichChieu}</span>
-                    <button className="px-20 py-5 text-white bg-red-500 rounded">
+                    {/* <span>{lichChieu.maLichChieu}</span> */}
+                    <button className="bg-red-500 text-white px-5 py-2">
                       <NavLink
                         className="text - white"
                         to={`/ticketroom/${lichChieu.maLichChieu}`}
                       >
-                        {" "}
-                        Mua vé
+                        <span className="bg-red-500 text-white px-5 py-2">
+                          {moment(lichChieu).format("LLLL")}
+                        </span>
                       </NavLink>
                     </button>
                   </div>

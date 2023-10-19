@@ -7,8 +7,6 @@ export default function Ticketroom() {
   const { id } = useParams();
   const [danhSachGhe, setLdanhSachGhe] = useState([]);
   const [thongTinPhim, setThongTinPhim] = useState({});
-  const [loaiGhe, setLoaiGhe] = useState();
-  const [gheDuocChon, setGheDuocChon] = useState(0);
   // gọi api lấy dữ liệu đặt vé
   useEffect(() => {
     getTicketRoom(id)
@@ -38,39 +36,6 @@ export default function Ticketroom() {
       </div>
     );
   };
-  // function hiển thị ghế đã chọn hay chưa
-  let handleChonGhe = (ghe) => {
-    if (ghe.taiKhoanNguoiDat == null) {
-      // setLoaiGhe("seat selected");
-      // setGheDuocChon(gheDuocChon + 1);
-      ghe.taiKhoanNguoiDat = "selected";
-      renderGhe(ghe);
-    } else if (ghe.taiKhoanNguoiDat == "selected") {
-      // setLoaiGhe("seat");
-      ghe.taiKhoanNguoiDat = null;
-      renderGhe(ghe);
-    }
-    // } else {
-    //   setLoaiGhe("seat sold");
-    // }
-  };
-  // render loại ghế
-  let renderGhe = (ghe) => {
-    if (ghe.taiKhoanNguoiDat == null) {
-      return "seat";
-    }
-    if (ghe.taiKhoanNguoiDat == "selected") {
-      return "seat selected";
-    }
-    return "seat sold";
-  };
-  // function render danh sách ghế
-  let handleRenderDanhSachGhe = () => {
-    return danhSachGhe.map((ghe) => {
-      return <div onClick={handleChonGhe(ghe)} className={renderGhe(ghe)} />;
-    });
-  };
-
   return (
     <div className="ticketroom">
       <div className=" flex">{handleThongTinPhim()}</div>

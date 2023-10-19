@@ -24,21 +24,30 @@ export default function DetailMovie() {
   );
   return (
     <div>
-      <div className="container flex justify-between items-center mb-3">
-        <img className="h-1/3" src={detail.hinhAnh} alt="" />
-        <p>{detail.tenPhim}</p>
-        <Progress
-          type="circle"
-          size={200}
-          strokeColor={"red"}
-          strokeWidth={20}
-          format={(percent) => (
-            <span className="text-red-600 font-medium animate-bounce block">
-              {percent / 10} Điểm
-            </span>
-          )}
-          percent={detail.danhGia * 10}
-        />
+      <div className="container flex justify-around items-center mb-3">
+        <img className="h-200" src={detail.hinhAnh} alt="" />
+        <div>
+          {/* <p className="m-3">{detail.tenPhim} </p> */}
+          {/* <iframe
+            width="560"
+            height="315"
+            src={detail.trailer}
+            frameborder="0"
+            allowfullscreen
+          ></iframe> */}
+          <Progress
+            type="circle"
+            size={200}
+            strokeColor={"red"}
+            strokeWidth={20}
+            format={(percent) => (
+              <span className="text-red-600 font-medium animate-bounce block">
+                {percent / 10} Điểm
+              </span>
+            )}
+            percent={detail.danhGia * 10}
+          />
+        </div>
       </div>
       <div className="mt-10">
         <TabMovie2 id={params.id}></TabMovie2>

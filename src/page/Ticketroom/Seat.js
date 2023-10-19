@@ -6,7 +6,7 @@ export default function Seat(props) {
   let listSeat = props.value;
   useEffect(() => {
     setSeats(listSeat);
-  }, []);
+  }, [listSeat]);
 
   let handleSeatClick = (index) => {
     let updatedSeats = [...seats];
@@ -15,7 +15,7 @@ export default function Seat(props) {
     } else if (seats[index].taiKhoanNguoiDat == "seat selected") {
       updatedSeats[index].taiKhoanNguoiDat = "seat"; // Chuyển ghế sang trạng thái trống
     }
-
+    listSeat = updatedSeats;
     setSeats(updatedSeats);
   };
 
