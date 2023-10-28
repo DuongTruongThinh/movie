@@ -7,6 +7,7 @@ export default function Header() {
   let { info } = useSelector((state) => {
     return state.userReducer;
   });
+  console.log(info);
   let handleLogOut = () => {
     userLocalStorage.remove();
     window.location.reload();
@@ -16,13 +17,18 @@ export default function Header() {
   // register
   let handleRegister = () => (window.location.href = "/register");
   let renderUserNav = () => {
-    let classBtn = "border-2 border-black rounded-xl px-7 py-3";
+    let classBtn =
+      "bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded";
     if (info) {
       return (
         <>
-          <span>{info.hoTen}</span>
+          <NavLink to={`/account/${info.taiKhoan}`} className={classBtn}>
+            <span className="mr-2">{info.hoTen}</span>
+            <i class="fa-solid fa-user-check"></i>
+          </NavLink>
           <button onClick={handleLogOut} className={classBtn}>
-            Đăng xuất
+            <span className="mr-2">Đăng xuất</span>
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
           </button>
         </>
       );
@@ -41,13 +47,14 @@ export default function Header() {
   };
 
   return (
-    <div className="h-20 flex items-center justify-between shadow-lg px-20">
+    <div className="h-20 lg:flex items-center justify-between shadow-lg px-20 ">
       <NavLink to="/">
-        <span className="text-3xl font-medium text-red-600 animate-pulse">
-          Cyber Flix
+        <span className="text-3xl font-medium text-orange-600">
+          <i class="fa-solid fa-film"></i>
+          <span className="ml-2">Phim chiếu rạp</span>
         </span>
       </NavLink>
-      <div className="space-x-5">{renderUserNav()}</div>
+      <div className="space-x-5 font-medium">{renderUserNav()}</div>
     </div>
   );
 }

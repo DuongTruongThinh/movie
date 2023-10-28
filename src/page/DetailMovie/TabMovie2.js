@@ -14,7 +14,8 @@ export default function TabMovie2(props) {
   useEffect(() => {
     getMovieByTheater()
       .then((res) => {
-        setDanhSachHeThongRap(res.data.content);
+        console.log(res);
+        setDanhSachHeThongRap(res.data);
       })
       .catch((err) => {});
   }, []);

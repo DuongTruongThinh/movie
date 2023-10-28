@@ -15,6 +15,7 @@ export default function Slider() {
     let fetchData = async () => {
       try {
         let response = await getDataSlider();
+
         setBanner(response.data.content);
       } catch {
         message.error("Đã có lỗi xảy ra");
@@ -23,32 +24,34 @@ export default function Slider() {
     fetchData();
   }, []);
   const onChange = (currentSlide) => {
-    console.log(currentSlide);
+    // console.log(currentSlide);
   };
   return (
-    <ConfigProvider
-      theme={{
-        components: {
-          Carousel: {
-            dotActiveWidth: 60,
-            dotWidth: 20,
-            dotHeight: 10,
+    <div className="mb-10">
+      <ConfigProvider
+        theme={{
+          components: {
+            Carousel: {
+              dotActiveWidth: 60,
+              dotWidth: 20,
+              dotHeight: 10,
+            },
           },
-        },
-      }}
-    >
-      <Carousel autoplay effect="fade" afterChange={onChange}>
-        {banner.map((item, index) => {
-          return (
-            <img
-              className="sm:h-56 md:h-72 lg:h-96 xl:h-[600px] w-full object-cover"
-              src={item.hinhAnh}
-              key={index}
-              alt=""
-            />
-          );
-        })}
-      </Carousel>
-    </ConfigProvider>
+        }}
+      >
+        <Carousel autoplay effect="fade" afterChange={onChange}>
+          {banner.map((item, index) => {
+            return (
+              <img
+                className="sm:h-56 md:h-72 lg:h-96 xl:h-[600px] w-full object-cover"
+                src={item.hinhAnh}
+                key={index}
+                alt=""
+              />
+            );
+          })}
+        </Carousel>
+      </ConfigProvider>
+    </div>
   );
 }

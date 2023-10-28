@@ -22,10 +22,10 @@ const FormLogin = () => {
       })
       .then((res) => {
         // đẩy info lên sau khi đăng nhập thành công
-        let action = { type: SET_INFO, payload: res.data.content };
+        let action = { type: SET_INFO, payload: res.data };
         dispatch(action);
         // đẩy data xuống local storage
-        userLocalStorage.set(res.data.content);
+        userLocalStorage.set(res.data);
         message.success("Đăng nhập thành công");
         console.log(res);
         navigate("/");
@@ -35,9 +35,9 @@ const FormLogin = () => {
         console.log(err);
       });
   };
-  const onFinish1 = (values) => {
-    dispatch(loginAction(values));
-  };
+  // const onFinish1 = (values) => {
+  //   dispatch(loginAction(values));
+  // };
   return (
     <Form
       className="w-1/2"

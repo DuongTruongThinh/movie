@@ -52,17 +52,26 @@ const FormRegister = () => {
   let navigate = useNavigate();
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
-    axios
-      .post(`${BASE_URL}/QuanLyNguoiDung/DangKy`, values, {
-        headers: configHeaders(),
-      })
+    axios({
+      method: "POST",
+      url: "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy",
+      data: {
+        taiKhoan: values.taiKhoan,
+        matKhau: values.matKhau,
+        email: values.email,
+        soDt: values.soDt,
+        maNhom: "GP09",
+        maLoaiNguoiDung: "KhachHang",
+        hoTen: values.hoTen,
+      },
+    })
       .then((res) => {
         message.success("Đăng ký thành công");
         console.log(res);
         navigate("/login");
       })
       .catch((err) => {
-        message.error(err.response.data.content);
+        // message.error(err.response);
         console.log(err);
       });
   };

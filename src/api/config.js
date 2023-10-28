@@ -3,5 +3,6 @@ export const TOKEN_CYPER =
 export const configHeaders = () => {
   return { TokenCyberSoft: TOKEN_CYPER };
 };
-export const BASE_URL = "https://movienew.cybersoft.edu.vn/api";
+export const BASE_URL = "https://movie0706.cybersoft.edu.vn/api";
 // https://movie0706.cybersoft.edu.vn/api/
+// https://movienew.cybersoft.edu.vn/api

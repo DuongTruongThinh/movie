@@ -7,19 +7,13 @@ import DetailMovie from "./page/DetailMovie/DetailMovie";
 import Layout from "./temlate/Layout";
 import Register from "./page/Register/Register";
 import Ticketroom from "./page/Ticketroom/Ticketroom";
+import Account from "./page/Account/Account";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Layout>
-              <Home></Home>
-            </Layout>
-          }
-        ></Route>
+        <Route path="/" element={<Home></Home>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
         <Route
@@ -36,6 +30,14 @@ function App() {
           element={
             <Layout>
               <Ticketroom></Ticketroom>
+            </Layout>
+          }
+        ></Route>
+        <Route
+          path="/account/:id"
+          element={
+            <Layout>
+              <Account></Account>
             </Layout>
           }
         ></Route>

@@ -8,7 +8,7 @@ export let loginAction = (values) => {
         headers: configHeaders(),
       })
       .then((res) => {
-        let action = { type: SET_INFO, payload: res.data.content };
+        let action = { type: SET_INFO, payload: res.data };
         dispatch(action);
         // đẩy data xuống local storage
       })
